@@ -1,17 +1,31 @@
 ﻿using BibliotecaWeb.Models.Dtos;
+using BibliotecaWeb.Models.Entidades;
 
 namespace BibliotecaWeb.Models.Contracts.Contexts
 {
     public interface IContextData
     {
-        void CadastrarLivro(LivroDto livro);
+        void CadastrarLivro(Livro livro);
 
-        List<LivroDto> ListarLivro();
+        List<Livro> ListarLivro();
 
-        LivroDto PesquisarLivroPorId(string id);
+        Livro PesquisarLivroPorId(string id);
 
-        void AtualizarLivro(LivroDto livro);
+        void AtualizarLivro(Livro livro);
 
         void ExcluirLivro(string id);
+
+
+
+        void CadastrarCliente(Cliente cliente);
+
+        List<Cliente> ListarCliente();
+
+        Cliente PesquisarClientePorId(string id);
+
+        void AtualizarCliente(Cliente cliente);
+
+        void ExcluirCliente(string id);
     }
 }
+

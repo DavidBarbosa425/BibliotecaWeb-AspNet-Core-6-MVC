@@ -1,6 +1,7 @@
 ﻿using BibliotecaWeb.Models.Entidades;
+using BibliotecaWeb.Models.Enums;
 
-namespace BibliotecaWeb.Models.Dtos
+namespace BibliotecaWeb.Models.Dtos 
 {
     public class LivroDto : EntidadeBase
     {
@@ -8,24 +9,25 @@ namespace BibliotecaWeb.Models.Dtos
         public string Autor { get; set; }
         public string Editora { get; set; }
         public int StatusLivroId { get; set; }
+        public string Status { get; set; }
 
-        public LivroDto() 
+        public LivroDto()
         {
-            
+
 
         }
-        public LivroDto(string id, string nome, string autor, string editora) : this(nome, autor,editora)
+    
+
+        public Livro ConvertParaEntidade()
         {
-            this.Id = id;
-
-        }
-
-        public LivroDto(string nome, string autor, string editora)
-        {
-            this.Nome = nome;
-            this.Autor = autor;
-            this.Editora = editora;
-
+            return new Livro
+            {
+                Id = this.Id,
+                Nome = this.Nome,
+                Autor = this.Autor,
+                Editora = this.Editora,
+                StatusLivro = GerenciadorDeStatus.PesquisarStatusDoLivroPorId(this.StatusLivroId)
+            };
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BibliotecaWeb.Models.Contracts.Contexts;
 using BibliotecaWeb.Models.Contracts.Repositories;
 using BibliotecaWeb.Models.Dtos;
+using BibliotecaWeb.Models.Entidades;
 
 namespace BibliotecaWeb.Models.Repositories
 {
@@ -13,12 +14,12 @@ namespace BibliotecaWeb.Models.Repositories
             _contexData = contextData;
         }
 
-        public void Atualizar(LivroDto livro)
+        public void Atualizar(Livro livro)
         {
             _contexData.AtualizarLivro(livro);
         }
 
-        public void Cadastrar(LivroDto livro)
+        public void Cadastrar(Livro livro)
         {
             _contexData.CadastrarLivro(livro);
         }
@@ -28,12 +29,12 @@ namespace BibliotecaWeb.Models.Repositories
            _contexData.ExcluirLivro(id);
         }
 
-        public List<LivroDto> Listar()
+        public List<Livro> Listar()
         {
             return _contexData.ListarLivro();
         }
 
-        public LivroDto PesquisarPorId(string id)
+        public Livro PesquisarPorId(string id)
         {
             return _contexData.PesquisarLivroPorId(id);
         }

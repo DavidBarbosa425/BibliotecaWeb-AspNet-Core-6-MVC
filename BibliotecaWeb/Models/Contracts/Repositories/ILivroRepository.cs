@@ -1,15 +1,16 @@
 ﻿using BibliotecaWeb.Models.Dtos;
+using BibliotecaWeb.Models.Entidades;
 
 namespace BibliotecaWeb.Models.Contracts.Repositories
 {
     public interface ILivroRepository
     {
-        void Cadastrar(LivroDto livro);
-        List<LivroDto> Listar();
+        void Cadastrar(Livro livro);
+        List<Livro> Listar();
 
-        LivroDto PesquisarPorId(string id);
+        Livro PesquisarPorId(string id);
 
-        void Atualizar(LivroDto livro);
+        void Atualizar(Livro livro);
 
         void Excluir(string id);
     }

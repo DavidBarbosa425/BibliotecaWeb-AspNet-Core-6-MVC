@@ -17,7 +17,8 @@ namespace BibliotecaWeb.Models.Services
         {
             try
             {
-                _livroRepository.Atualizar(livro);
+                var objLivro = livro.ConvertParaEntidade();
+                _livroRepository.Atualizar(objLivro);
             }
             catch (Exception ex)
             {
@@ -29,7 +30,9 @@ namespace BibliotecaWeb.Models.Services
         {
             try
             {
-                _livroRepository.Cadastrar(livro);
+                var objLivro = livro.ConvertParaEntidade();
+                objLivro.Cadastrar();
+                _livroRepository.Cadastrar(objLivro);
             }
             catch (Exception ex)
             {
@@ -53,7 +56,14 @@ namespace BibliotecaWeb.Models.Services
 
             try
             {
-                return _livroRepository.Listar();
+                var livroDto = new List<LivroDto>();
+                var livros = _livroRepository.Listar();
+                foreach (var item in livros)
+                {
+                    livroDto.Add(item.ConverterParaDto());
+                }
+
+                return livroDto;
             }
             catch (Exception ex)
             {
@@ -66,7 +76,8 @@ namespace BibliotecaWeb.Models.Services
         {
             try
             {
-                return _livroRepository.PesquisarPorId(id);
+                var livro = _livroRepository.PesquisarPorId(id);
+                return livro.ConverterParaDto();
             }
             catch (Exception ex)
             {
