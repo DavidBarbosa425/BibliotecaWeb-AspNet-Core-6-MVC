@@ -62,6 +62,8 @@ namespace BibliotecaWeb.Controllers
 
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit([Bind("Id,Nome,CPF,Email,Fone,StatusClienteId")] ClienteDto cliente)
         {
             if(string.IsNullOrEmpty(cliente.Id)) return NotFound();
@@ -97,6 +99,8 @@ namespace BibliotecaWeb.Controllers
             return View(cliente);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete([Bind("Id,Nome,CPF,Email,Fone,StatusClienteId")] ClienteDto cliente)
         {
             _clienteService.Excluir(cliente.Id);

@@ -8856,19 +8856,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\David\\.nuget\\packages\\": {}
+    "C:\\Users\\DAVID\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\David\\Documents\\Estudos\\BibliotecaWeb-AspNet-Core-6-MVC\\BibliotecaWeb\\BibliotecaWeb.csproj",
+      "projectUniqueName": "C:\\Users\\DAVID\\Documents\\Estudos\\BibliotecaWeb\\BibliotecaWeb-AspNet-Core-MVC-6\\BibliotecaWeb\\BibliotecaWeb.csproj",
       "projectName": "BibliotecaWeb",
-      "projectPath": "C:\\Users\\David\\Documents\\Estudos\\BibliotecaWeb-AspNet-Core-6-MVC\\BibliotecaWeb\\BibliotecaWeb.csproj",
-      "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\David\\Documents\\Estudos\\BibliotecaWeb-AspNet-Core-6-MVC\\BibliotecaWeb\\obj\\",
+      "projectPath": "C:\\Users\\DAVID\\Documents\\Estudos\\BibliotecaWeb\\BibliotecaWeb-AspNet-Core-MVC-6\\BibliotecaWeb\\BibliotecaWeb.csproj",
+      "packagesPath": "C:\\Users\\DAVID\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DAVID\\Documents\\Estudos\\BibliotecaWeb\\BibliotecaWeb-AspNet-Core-MVC-6\\BibliotecaWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DAVID\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
