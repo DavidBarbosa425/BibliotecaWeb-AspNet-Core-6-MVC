@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSingleton<IContextData, ContextDataFake>();
+//builder.Services.AddSingleton<IContextData, ContextDataFake>();
 builder.Services.AddSingleton<IContextData, ContextDataSqlServer>();
 builder.Services.AddSingleton<IConnectionManager, ConnectionManager>();
 builder.Services.AddScoped<ILivroRepository, LivroRepository>();

@@ -8,57 +8,73 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BibliotecaWeb
 build_property.RootNamespace = BibliotecaWeb
-build_property.ProjectDir = C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\BibliotecaWeb\
+build_property.ProjectDir = C:\Users\David\Documents\Estudos\BibliotecaWeb-AspNet-Core-6-MVC\BibliotecaWeb\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\BibliotecaWeb
+build_property.MSBuildProjectDirectory = C:\Users\David\Documents\Estudos\BibliotecaWeb-AspNet-Core-6-MVC\BibliotecaWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/Home/Index.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Cliente/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Cliente/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Cliente/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Cliente/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/Livro/Create.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Livro/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2cm9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/Livro/Delete.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Livro/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2cm9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/Livro/Details.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Livro/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2cm9cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/Livro/Edit.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Livro/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2cm9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/Livro/Index.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Livro/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2cm9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/Livro/List.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Livro/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2cm9cTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/Shared/Error.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/_ViewImports.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/_ViewStart.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DAVID/Documents/Estudos/BibliotecaWeb/BibliotecaWeb-AspNet-Core-MVC-6/BibliotecaWeb/Views/Shared/_Layout.cshtml]
+[C:/Users/David/Documents/Estudos/BibliotecaWeb-AspNet-Core-6-MVC/BibliotecaWeb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-5fge8w3kxp
