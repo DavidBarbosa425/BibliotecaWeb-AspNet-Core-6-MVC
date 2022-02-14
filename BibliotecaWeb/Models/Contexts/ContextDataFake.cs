@@ -24,6 +24,11 @@ namespace BibliotecaWeb.Models.Contexts
             throw new NotImplementedException();
         }
 
+        public void AtualizarCliente(Usuario usuario)
+        {
+            throw new NotImplementedException();
+        }
+
         public void AtualizarLivro(Livro livro)
         {
 
@@ -42,6 +47,11 @@ namespace BibliotecaWeb.Models.Contexts
             {
                 throw ex;
             }
+        }
+
+        public void AtualizarUsuario(Usuario usuario)
+        {
+            throw new NotImplementedException();
         }
 
         public void CadastrarCliente(Livro livro)
@@ -66,6 +76,11 @@ namespace BibliotecaWeb.Models.Contexts
             }
         }
 
+        public void CadastrarUsuario(Usuario usuario)
+        {
+            throw new NotImplementedException();
+        }
+
         public void ExcluirCliente(string id)
         {
             throw new NotImplementedException();
@@ -82,6 +97,11 @@ namespace BibliotecaWeb.Models.Contexts
             {
                 throw ex;
             }
+        }
+
+        public void ExcluirUsuario(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Livro> ListarCliente()
@@ -101,6 +121,11 @@ namespace BibliotecaWeb.Models.Contexts
             }
         }
 
+        public List<Usuario> ListarUsuarios()
+        {
+            throw new NotImplementedException();
+        }
+
         public Livro PesquisarClientePorId(string id)
         {
             throw new NotImplementedException();
@@ -116,6 +141,11 @@ namespace BibliotecaWeb.Models.Contexts
             {
                 throw ex;
             }
+        }
+
+        public Cliente PesquisarUsuarioPorId(int id)
+        {
+            throw new NotImplementedException();
         }
 
         private void InitializeData()
@@ -144,6 +174,11 @@ namespace BibliotecaWeb.Models.Contexts
         }
 
         Cliente IContextData.PesquisarClientePorId(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Usuario IContextData.PesquisarUsuarioPorId(int id)
         {
             throw new NotImplementedException();
         }

@@ -317,7 +317,7 @@ namespace BibliotecaWeb.Models.Contexts
                     var statusClienteId = colunas[5].ToString();
 
                     var cliente = new Cliente { Id = id, Nome = nome, CPF = cpf, Email = email, Fone = fone, StatusClienteId = Int32.Parse(statusClienteId) };
-                        cliente.StatusCliente = GerenciadorDeStatus.PesquisarStatusDoClientePeloId(cliente.StatusClienteId);
+                    cliente.StatusCliente = GerenciadorDeStatus.PesquisarStatusDoClientePeloId(cliente.StatusClienteId);
                     clientes.Add(cliente);
 
                 }
@@ -363,9 +363,9 @@ namespace BibliotecaWeb.Models.Contexts
                     var fone = colunas[4].ToString();
                     var statusClienteId = colunas[5].ToString();
 
-                        cliente = new Cliente { Id = codigo, Nome = nome, CPF = cpf, Email = email, Fone = fone, StatusClienteId = Int32.Parse(statusClienteId)};
-                        cliente.StatusCliente = GerenciadorDeStatus.PesquisarStatusDoClientePeloId(cliente.StatusClienteId);
-                   
+                    cliente = new Cliente { Id = codigo, Nome = nome, CPF = cpf, Email = email, Fone = fone, StatusClienteId = Int32.Parse(statusClienteId) };
+                    cliente.StatusCliente = GerenciadorDeStatus.PesquisarStatusDoClientePeloId(cliente.StatusClienteId);
+
 
                 }
 
@@ -373,6 +373,183 @@ namespace BibliotecaWeb.Models.Contexts
                 dataset = null;
 
                 return cliente;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public void AtualizarUsuario(Usuario usuario)
+        {
+            try
+            {
+                _connection.Open();
+                var query = SqlManager.GetSql(TSql.ATUALIZAR_USUARIO);
+
+                var command = new SqlCommand(query, _connection);
+
+                command.Parameters.Add("@id", SqlDbType.Int).Value = usuario.Id;
+                command.Parameters.Add("@login", SqlDbType.VarChar).Value = usuario.Login;
+                command.Parameters.Add("@senha", SqlDbType.VarChar).Value = usuario.Senha;
+
+
+                command.ExecuteNonQuery();
+
+                _connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+        }
+
+        public void CadastrarUsuario(Usuario usuario)
+        {
+            try
+            {
+                _connection.Open();
+                var query = SqlManager.GetSql(TSql.CADASTRAR_USUARIO);
+
+                var command = new SqlCommand(query, _connection);
+
+                command.Parameters.Add("@id", SqlDbType.Int).Value = usuario.Id;
+                command.Parameters.Add("@login", SqlDbType.VarChar).Value = usuario.Login;
+                command.Parameters.Add("@senha", SqlDbType.VarChar).Value = usuario.Senha;
+
+
+                command.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+        }
+
+        public void ExcluirUsuario(int id)
+        {
+            try
+            {
+                _connection.Open();
+                var query = SqlManager.GetSql(TSql.EXCLUIR_USUARIO);
+
+                var command = new SqlCommand(query, _connection);
+
+                command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+
+                command.ExecuteNonQuery();
+
+                _connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+        }
+
+        public List<Usuario> ListarUsuarios()
+        {
+            var usuarios = new List<Usuario>();
+
+            try
+            {
+
+                var query = SqlManager.GetSql(TSql.LISTAR_USUARIO);
+
+                var command = new SqlCommand(query, _connection);
+                var dataset = new DataSet();
+                var adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataset);
+
+                var rows = dataset.Tables[0].Rows;
+
+                foreach (DataRow item in rows)
+                {
+                    var colunas = item.ItemArray;
+
+                    var id = Int32.Parse(colunas[0].ToString());
+                    var login = colunas[1].ToString();
+                    var senha = colunas[2].ToString();
+
+
+                    var usuario = new Usuario { Id = id, Login = login, Senha = senha };
+                    usuarios.Add(usuario);
+
+                }
+
+                adapter = null;
+                dataset = null;
+
+                return usuarios;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public Usuario PesquisarUsuarioPorId(int id)
+        {
+            try
+            {
+                Usuario usuario = null;
+
+                var query = SqlManager.GetSql(TSql.PESQUISAR_USUARIO);
+
+                var command = new SqlCommand(query, _connection);
+                command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+                var dataset = new DataSet();
+                var adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataset);
+
+                var rows = dataset.Tables[0].Rows;
+
+                foreach (DataRow item in rows)
+                {
+                    var colunas = item.ItemArray;
+
+                    var codigo = Int32.Parse(colunas[0].ToString());
+                    var login = colunas[1].ToString();
+                    var senha = colunas[2].ToString();
+
+
+                     usuario = new Usuario { Id = codigo, Login = login, Senha = senha };
+                    
+                }
+
+                adapter = null;
+                dataset = null;
+
+                return usuario;
 
             }
             catch (Exception ex)

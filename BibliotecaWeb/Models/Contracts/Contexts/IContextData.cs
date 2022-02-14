@@ -26,6 +26,18 @@ namespace BibliotecaWeb.Models.Contracts.Contexts
         void AtualizarCliente(Cliente cliente);
 
         void ExcluirCliente(string id);
+
+
+
+        void CadastrarUsuario(Usuario usuario);
+
+        List<Usuario> ListarUsuarios();
+
+        Usuario PesquisarUsuarioPorId(int id);
+
+        void AtualizarUsuario(Usuario usuario);
+
+        void ExcluirUsuario(int id);
     }
 }
 

@@ -42,6 +42,23 @@ namespace BibliotecaWeb.Models.Repositories
                 case TSql.EXCLUIR_CLIENTE:
                     sql = "delete cliente where convert(varchar(36),id) = @id";
                     break;
+
+
+                case TSql.CADASTRAR_USUARIO:
+                    sql = "insert into usuario(login, senha) values(@login, @senha)";
+                    break;
+                case TSql.LISTAR_USUARIO:
+                    sql = "select * from usuario";
+                    break;
+                case TSql.PESQUISAR_USUARIO:
+                    sql = "select id,login,senha from usuario where id = @id";
+                    break;
+                case TSql.ATUALIZAR_USUARIO:
+                    sql = "update usuario set senha = @senha where id = @id";
+                    break;
+                case TSql.EXCLUIR_USUARIO:
+                    sql = "delete usuario where id = @id";
+                    break;
             }
             return sql;
         }
