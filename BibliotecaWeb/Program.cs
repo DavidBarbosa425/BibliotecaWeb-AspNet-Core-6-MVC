@@ -13,6 +13,8 @@ builder.Services.AddControllersWithViews();
 //builder.Services.AddSingleton<IContextData, ContextDataFake>();
 builder.Services.AddSingleton<IContextData, ContextDataSqlServer>();
 builder.Services.AddSingleton<IConnectionManager, ConnectionManager>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ILivroRepository, LivroRepository>();
 builder.Services.AddScoped<ILivroService, LivroService>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();

@@ -6,8 +6,8 @@ namespace BibliotecaWeb.Models.Contracts.Repositories
     {
         void Cadastrar(Usuario usuario);
         List<Usuario> Listar();
-        Usuario PesquisarPorId(string id);
+        Usuario PesquisarPorId(int id);
         void Atualizar(Usuario usuario);
-        void Excluir(string id);
+        void Excluir(int id);
     }
 }

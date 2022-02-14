@@ -16,27 +16,27 @@ namespace BibliotecaWeb.Models.Repositories
 
         public void Atualizar(Usuario usuario)
         {
-            throw new NotImplementedException();
+            _contexData.AtualizarUsuario(usuario);
         }
 
         public void Cadastrar(Usuario usuario)
         {
-            throw new NotImplementedException();
+            _contexData.CadastrarUsuario(usuario);
         }
 
-        public void Excluir(string id)
+        public void Excluir(int id)
         {
-            throw new NotImplementedException();
+            _contexData.ExcluirUsuario(id);
         }
 
         public List<Usuario> Listar()
         {
-            throw new NotImplementedException();
+           return _contexData.ListarUsuarios();
         }
 
-        public Usuario PesquisarPorId(string id)
+        public Usuario PesquisarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _contexData.PesquisarUsuarioPorId(id);
         }
     }
 }
