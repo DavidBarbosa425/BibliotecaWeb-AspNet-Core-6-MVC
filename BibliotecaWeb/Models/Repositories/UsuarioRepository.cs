@@ -1,5 +1,6 @@
 ﻿using BibliotecaWeb.Models.Contracts.Contexts;
 using BibliotecaWeb.Models.Contracts.Repositories;
+using BibliotecaWeb.Models.Dtos;
 using BibliotecaWeb.Models.Entidades;
 
 namespace BibliotecaWeb.Models.Repositories
@@ -22,6 +23,11 @@ namespace BibliotecaWeb.Models.Repositories
         public void Cadastrar(Usuario usuario)
         {
             _contexData.CadastrarUsuario(usuario);
+        }
+
+        public UsuarioDto EfetuarLogin(UsuarioDto usuario)
+        {
+            return _contexData.EfetuarLogin(usuario);
         }
 
         public void Excluir(int id)

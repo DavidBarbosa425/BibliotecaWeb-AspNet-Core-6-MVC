@@ -19,5 +19,6 @@
         PESQUISAR_USUARIO,
         ATUALIZAR_USUARIO,
         EXCLUIR_USUARIO,
+        EFETUAR_LOGIN,
     }
 }

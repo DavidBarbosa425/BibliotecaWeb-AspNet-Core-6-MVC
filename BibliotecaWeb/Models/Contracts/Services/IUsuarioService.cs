@@ -10,6 +10,7 @@ namespace BibliotecaWeb.Models.Contracts.Services
         UsuarioDto PesquisarPorId(int id);
         void Atualizar(UsuarioDto usuario);
         void Excluir(int id);
+        UsuarioDto EfetuarLogin(UsuarioDto usuario);
 
     }
 }

@@ -59,6 +59,10 @@ namespace BibliotecaWeb.Models.Repositories
                 case TSql.EXCLUIR_USUARIO:
                     sql = "delete usuario where id = @id";
                     break;
+
+                case TSql.EFETUAR_LOGIN:
+                    sql = "select id, login from usuario where login = @login and senha = @senha";
+                    break;
             }
             return sql;
         }

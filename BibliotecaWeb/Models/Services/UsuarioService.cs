@@ -40,6 +40,19 @@ namespace BibliotecaWeb.Models.Services
             }
         }
 
+        public UsuarioDto EfetuarLogin(UsuarioDto usuario)
+        {
+            try
+            {
+                var validacao = _usuarioRepository.EfetuarLogin(usuario);
+                return validacao;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void Excluir(int id)
         {
             try

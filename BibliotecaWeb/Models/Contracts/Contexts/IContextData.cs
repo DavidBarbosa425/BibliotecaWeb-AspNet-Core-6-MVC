@@ -38,6 +38,7 @@ namespace BibliotecaWeb.Models.Contracts.Contexts
         void AtualizarUsuario(Usuario usuario);
 
         void ExcluirUsuario(int id);
+        UsuarioDto EfetuarLogin(UsuarioDto usuario);
     }
 }
 

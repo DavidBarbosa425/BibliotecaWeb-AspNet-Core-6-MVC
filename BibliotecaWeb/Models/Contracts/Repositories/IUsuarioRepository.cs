@@ -1,4 +1,5 @@
-﻿using BibliotecaWeb.Models.Entidades;
+﻿using BibliotecaWeb.Models.Dtos;
+using BibliotecaWeb.Models.Entidades;
 
 namespace BibliotecaWeb.Models.Contracts.Repositories
 {
@@ -9,5 +10,6 @@ namespace BibliotecaWeb.Models.Contracts.Repositories
         Usuario PesquisarPorId(int id);
         void Atualizar(Usuario usuario);
         void Excluir(int id);
+        UsuarioDto EfetuarLogin(UsuarioDto usuario);
     }
 }
