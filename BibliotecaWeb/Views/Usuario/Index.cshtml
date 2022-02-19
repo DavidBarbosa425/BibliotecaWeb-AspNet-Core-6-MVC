@@ -16,5 +16,15 @@
             <td>&nbsp;</td>
             <td><input type="submit" value="Login" /></td>
         </tr>
+        @{
+            if(TempData["loginError"] != null && ((bool)TempData["loginError"]) == true)
+            {
+         <tr>
+            <td colspan="2">
+                <p class="text-danger">Falha ao Efetuar Login</p>
+            </td>
+        </tr>
+            }
+        }
     </table>
 </form>

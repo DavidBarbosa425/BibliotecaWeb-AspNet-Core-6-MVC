@@ -29,17 +29,31 @@ namespace BibliotecaWeb.Controllers
 
                 if (resultado != null)
                 {
-                    return Redirect("/Home");
+                    TempData["userId"] = resultado.Id;
+                    TempData["login"] = resultado.Login;
+                    TempData["loginError"] = false;
+
+                    return Redirect("/Emprestimo/Index");
                 }
                 else
                 {
-                    return Redirect("/Home");
+                    TempData["loginError"] = true;
+                    return RedirectToAction("Index");
                 }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        public IActionResult logout()
+        {
+            TempData["userId"] = null;
+            TempData["login"] = null;
+            TempData["loginError"] = false;
+
+            return Redirect("/Home");
         }
     }
 }
