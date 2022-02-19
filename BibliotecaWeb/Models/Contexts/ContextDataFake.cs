@@ -81,6 +81,16 @@ namespace BibliotecaWeb.Models.Contexts
             throw new NotImplementedException();
         }
 
+        public void EfetuarDevolucaoLivro(EmprestimoLivro emprestimoLivro)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EfetuarEmprestimoLivro(EmprestimoLivro emprestimoLivro)
+        {
+            throw new NotImplementedException();
+        }
+
         public UsuarioDto EfetuarLogin(UsuarioDto usuario)
         {
             throw new NotImplementedException();

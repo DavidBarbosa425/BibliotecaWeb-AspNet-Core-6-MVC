@@ -599,6 +599,100 @@ namespace BibliotecaWeb.Models.Contexts
                 throw ex;
             }
         }
+
+        public void EfetuarEmprestimoLivro(EmprestimoLivro emprestimoLivro)
+        {
+
+            SqlTransaction Transaction = null;
+
+            try
+            {
+                _connection.Open();
+                Transaction = _connection.BeginTransaction();
+
+                var query = SqlManager.GetSql(TSql.EFETUAR_EMPRESTIMO_LIVRO);
+
+                var command = new SqlCommand(query, _connection);
+
+                command.Parameters.Add("@clienteId", SqlDbType.VarChar).Value = emprestimoLivro.ClienteId;
+                command.Parameters.Add("@usuarioId", SqlDbType.Int).Value = emprestimoLivro.UsuarioId;
+                command.Parameters.Add("@livroId", SqlDbType.VarChar).Value = emprestimoLivro.LivriId;
+                command.Parameters.Add("@dataEmprestimo", SqlDbType.DateTime).Value = emprestimoLivro.DataEmprestimo;
+                command.Parameters.Add("@dataDevolucao", SqlDbType.DateTime).Value = emprestimoLivro.DataDevolucao;
+
+
+                command.ExecuteNonQuery();
+
+                var query2 = SqlManager.GetSql(TSql.ATUALIZAR_STATUS_LIVRO);
+                var command2 = new SqlCommand(query, _connection, Transaction);
+
+                command2.Parameters.Add("@id", SqlDbType.VarChar).Value = emprestimoLivro.LivriId;
+                command2.Parameters.Add("@statusLivroId", SqlDbType.Int).Value = StatusLivro.EMPRESTADO.GetHashCode();
+
+                command2.ExecuteNonQuery();
+                Transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (Transaction != null)
+                {
+                    Transaction.Rollback();
+                }
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+        }
+    
+
+        public void EfetuarDevolucaoLivro(EmprestimoLivro emprestimoLivro)
+        {
+        SqlTransaction Transaction = null;
+
+        try
+        {
+            _connection.Open();
+            Transaction = _connection.BeginTransaction();
+
+            var query = SqlManager.GetSql(TSql.EFETUAR_DEVOLUCAO_LIVRO);
+
+            var command = new SqlCommand(query, _connection);
+
+            command.Parameters.Add("@clienteId", SqlDbType.VarChar).Value = emprestimoLivro.ClienteId;
+            command.Parameters.Add("@livroId", SqlDbType.VarChar).Value = emprestimoLivro.LivriId;
+            command.Parameters.Add("@dataDevolucaoEfetiva", SqlDbType.DateTime).Value = emprestimoLivro.DataDevolucaoEfetiva;
+
+
+            command.ExecuteNonQuery();
+
+            var query2 = SqlManager.GetSql(TSql.ATUALIZAR_STATUS_LIVRO);
+            var command2 = new SqlCommand(query, _connection, Transaction);
+
+            command2.Parameters.Add("@id", SqlDbType.VarChar).Value = emprestimoLivro.LivriId;
+            command2.Parameters.Add("@statusLivroId", SqlDbType.Int).Value = StatusLivro.DISPONIVEL.GetHashCode();
+
+            command2.ExecuteNonQuery();
+            Transaction.Commit();
+        }
+        catch (Exception ex)
+        {
+            if (Transaction != null)
+            {
+                Transaction.Rollback();
+            }
+        }
+        finally
+        {
+            if (_connection.State == ConnectionState.Open)
+            {
+                _connection.Close();
+            }
+        }
+    }
     }
 
 }

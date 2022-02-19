@@ -39,6 +39,10 @@ namespace BibliotecaWeb.Models.Contracts.Contexts
 
         void ExcluirUsuario(int id);
         UsuarioDto EfetuarLogin(UsuarioDto usuario);
+
+
+        void EfetuarEmprestimoLivro(EmprestimoLivro emprestimoLivro);
+        void EfetuarDevolucaoLivro(EmprestimoLivro emprestimoLivro);
     }
 }
 
