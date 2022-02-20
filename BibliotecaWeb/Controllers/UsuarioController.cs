@@ -31,6 +31,10 @@ namespace BibliotecaWeb.Controllers
                 {
                     TempData["userId"] = resultado.Id;
                     TempData["login"] = resultado.Login;
+
+                    HttpContext.Session.SetString("_UserId", resultado.Id.ToString());
+                    HttpContext.Session.SetString("_Login", resultado.Login);
+
                     TempData["loginError"] = false;
 
                     return Redirect("/Emprestimo/Index");
@@ -51,6 +55,9 @@ namespace BibliotecaWeb.Controllers
         {
             TempData["userId"] = null;
             TempData["login"] = null;
+
+            HttpContext.Session.Remove("_UserId");
+            HttpContext.Session.Remove("_Login");
             TempData["loginError"] = false;
 
             return Redirect("/Home");

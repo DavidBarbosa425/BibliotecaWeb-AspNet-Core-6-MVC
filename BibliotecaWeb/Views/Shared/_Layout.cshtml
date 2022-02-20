@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -29,13 +32,14 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Cliente" asp-action="List">Clientes</a>
                         </li>
                        @{
-                            if(TempData["login"] != null)
+                            var login = Context.Session.GetString("_Login");
+                            if(login != null)
                             {
                                <li class="nav-item">
                                    <a class="nav-link text-white" asp-area="" asp-controller="Emprestimo" asp-action="Index">Emprestimo</a>
                                </li>
                                <li class="nav-item">
-                                    <p class="nav-link text-warning">Olá, @TempData["login"]</p>
+                                    <p class="nav-link text-warning">Olá, @login</p>
                                </li>
                                <li class="nav-item">
                                    <a class="nav-link text-white" asp-area="" asp-controller="Usuario" asp-action="Logout">Logout</a>
