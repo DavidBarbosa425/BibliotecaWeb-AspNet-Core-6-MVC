@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //builder.Services.AddSingleton<IContextData, ContextDataFake>();
+builder.Services.AddSingleton<IEmprestimoLivroService, EmprestimoLivroService>();
 builder.Services.AddSingleton<IEmprestimoLivroRepository, EmprestimoLivroRepository>();
 builder.Services.AddSingleton<IContextData, ContextDataSqlServer>();
 builder.Services.AddSingleton<IConnectionManager, ConnectionManager>();
