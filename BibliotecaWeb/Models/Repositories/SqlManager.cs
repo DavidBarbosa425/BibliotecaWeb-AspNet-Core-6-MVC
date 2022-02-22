@@ -15,7 +15,7 @@ namespace BibliotecaWeb.Models.Repositories
                     sql = "insert into livro(id,nome,autor,editora,statusLivroId) values(convert(binary(36),@id),@nome,@autor,@editora,@statusLivroId)";
                     break;
                 case TSql.LISTAR_LIVRO:
-                    sql = "select convert(varchar(36),id)'id',nome,autor,editora from livro order by nome";
+                    sql = "select convert(varchar(36),id)'id',nome,autor,editora, statusLivroId from livro order by nome";
                     break;
                 case TSql.PESQUISAR_LIVRO:
                     sql = "select convert(varchar(36),id)'id',nome,autor,editora from livro where id = @id";

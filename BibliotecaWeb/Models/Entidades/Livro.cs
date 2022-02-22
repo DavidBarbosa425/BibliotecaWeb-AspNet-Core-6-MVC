@@ -7,6 +7,7 @@ namespace BibliotecaWeb.Models.Entidades
         public string Nome { get; set; }
         public string Autor { get; set; }
         public string Editora { get; set; }
+        public int StatusLivroId { get; set; }
         public StatusLivro StatusLivro { get; set; }
 
         public Livro()
