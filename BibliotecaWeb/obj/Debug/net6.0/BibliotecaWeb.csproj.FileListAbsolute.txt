@@ -481,7 +481,6 @@ C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\B
 C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\BibliotecaWeb\bin\Debug\net6.0\BibliotecaWeb.deps.json
 C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\BibliotecaWeb\bin\Debug\net6.0\BibliotecaWeb.runtimeconfig.json
 C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\BibliotecaWeb\bin\Debug\net6.0\BibliotecaWeb.dll
-C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\BibliotecaWeb\bin\Debug\net6.0\ref\BibliotecaWeb.dll
 C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\BibliotecaWeb\bin\Debug\net6.0\BibliotecaWeb.pdb
 C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\BibliotecaWeb\bin\Debug\net6.0\Humanizer.dll
 C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\BibliotecaWeb\bin\Debug\net6.0\MessagePack.dll
@@ -950,3 +949,4 @@ C:\Users\David\Documents\Estudos\BibliotecaWeb-AspNet-Core-6-MVC\BibliotecaWeb\o
 C:\Users\David\Documents\Estudos\BibliotecaWeb-AspNet-Core-6-MVC\BibliotecaWeb\obj\Debug\net6.0\ref\BibliotecaWeb.dll
 C:\Users\David\Documents\Estudos\BibliotecaWeb-AspNet-Core-6-MVC\BibliotecaWeb\obj\Debug\net6.0\BibliotecaWeb.pdb
 C:\Users\David\Documents\Estudos\BibliotecaWeb-AspNet-Core-6-MVC\BibliotecaWeb\obj\Debug\net6.0\BibliotecaWeb.genruntimeconfig.cache
+C:\Users\DAVID\Documents\Estudos\BibliotecaWeb\BibliotecaWeb-AspNet-Core-MVC-6\BibliotecaWeb\obj\Debug\net6.0\refint\BibliotecaWeb.dll

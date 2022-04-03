@@ -29,8 +29,6 @@ namespace BibliotecaWeb.Controllers
 
                 if (resultado != null)
                 {
-                    TempData["userId"] = resultado.Id;
-                    TempData["login"] = resultado.Login;
 
                     HttpContext.Session.SetString("_UserId", resultado.Id.ToString());
                     HttpContext.Session.SetString("_Login", resultado.Login);
@@ -53,8 +51,6 @@ namespace BibliotecaWeb.Controllers
 
         public IActionResult logout()
         {
-            TempData["userId"] = null;
-            TempData["login"] = null;
 
             HttpContext.Session.Remove("_UserId");
             HttpContext.Session.Remove("_Login");

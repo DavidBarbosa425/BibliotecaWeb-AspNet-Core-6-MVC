@@ -30,6 +30,7 @@ namespace BibliotecaWeb.Models.Services
             try
             {
                 var entidade = emprestimoLivro.ConverterParaEntidade();
+                entidade.realizarEmprestimo();
                 _emprestimoLivroRepository.EfetuarEmprestimo(entidade);
             }
             catch (Exception ex)
