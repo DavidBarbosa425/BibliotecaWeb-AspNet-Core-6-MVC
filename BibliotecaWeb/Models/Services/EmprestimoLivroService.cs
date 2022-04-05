@@ -12,6 +12,14 @@ namespace BibliotecaWeb.Models.Services
         {
             _emprestimoLivroRepository = emprestimoLivroRepository;
         }
+
+        public List<ConsultaEmprestimoDto> ConsultaEmprestimos()
+        {
+
+             return _emprestimoLivroRepository.ConsultarEmprestimos();
+
+        }
+
         public void EfetuarDevolucao(EmprestimoLivroDto emprestimoLivro)
         {
             try

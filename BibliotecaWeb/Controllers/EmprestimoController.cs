@@ -20,6 +20,21 @@ namespace BibliotecaWeb.Controllers
             string login = HttpContext.Session.GetString("_Login");
             return View();
         }
+
+        public IActionResult Consulta()
+        {
+            try
+            {
+                var emprestimos = _emprestimoService.ConsultaEmprestimos();
+                return View(emprestimos);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+            
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult EfetuarEmprestimo([Bind("Cliente,Livro")] EmprestimoDto emprestimo)
@@ -42,7 +57,7 @@ namespace BibliotecaWeb.Controllers
 
                 _emprestimoService.EfetuarEmprestimo(entidade);
 
-                return RedirectToAction("index"); 
+                return RedirectToAction("Consulta"); 
             }
             catch (Exception ex)
             {

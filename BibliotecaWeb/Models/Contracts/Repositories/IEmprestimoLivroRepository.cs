@@ -1,4 +1,5 @@
-﻿using BibliotecaWeb.Models.Entidades;
+﻿using BibliotecaWeb.Models.Dtos;
+using BibliotecaWeb.Models.Entidades;
 
 namespace BibliotecaWeb.Models.Contracts.Repositories
 {
@@ -6,6 +7,7 @@ namespace BibliotecaWeb.Models.Contracts.Repositories
     {
         void EfetuarEmprestimo(EmprestimoLivro emprestimoLivro);
         void EfetuarDevolucao(EmprestimoLivro emprestimoLivro);
+        List<ConsultaEmprestimoDto> ConsultarEmprestimos();
 
     }
 }

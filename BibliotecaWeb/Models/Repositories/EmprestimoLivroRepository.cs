@@ -1,5 +1,6 @@
 ﻿using BibliotecaWeb.Models.Contracts.Contexts;
 using BibliotecaWeb.Models.Contracts.Repositories;
+using BibliotecaWeb.Models.Dtos;
 using BibliotecaWeb.Models.Entidades;
 
 namespace BibliotecaWeb.Models.Repositories
@@ -12,6 +13,12 @@ namespace BibliotecaWeb.Models.Repositories
         {
             _contextData = contextData; 
         }
+
+        public List<ConsultaEmprestimoDto> ConsultarEmprestimos()
+        {
+            return _contextData.ConsultarEmprestimos();
+        }
+
         public void EfetuarDevolucao(EmprestimoLivro emprestimoLivro)
         {
             _contextData.EfetuarDevolucaoLivro(emprestimoLivro);

@@ -76,6 +76,23 @@ namespace BibliotecaWeb.Models.Repositories
                 case TSql.EFETUAR_DEVOLUCAO_LIVRO:
                     sql = "update emprestimoLivro set dataDevolucao = @dataDevolucao where clienteId = @clienteId and livroId = @livroId";
                     break;
+                case TSql.CONSULTAR_EMPRESTIMOS_LIVROS:
+                    sql = @"select l.nome 'Livro', l.autor, l.editora,
+                            c.nome 'Cliente', c.cpf,
+                            el.dataEmprestimo,el.dataDevolucao,el.dataDevolucaoEfetiva,
+                            sl.status 'Status do Livro',
+                            u.login ' Login Bibliotecario'
+                            from emprestimoLivro EL
+                            inner
+                            join livro L on EL.livroId = L.id
+                            inner
+                            join cliente C on c.id = el.clienteId
+                            inner
+                            join statusLivro SL on SL.id = L.statusLivroId
+                            inner
+                            join usuario U on u.id = EL.usuarioId";
+                    break ;
+
             }
             return sql;
         }

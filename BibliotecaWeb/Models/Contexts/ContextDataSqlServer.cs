@@ -613,7 +613,7 @@ namespace BibliotecaWeb.Models.Contexts
 
                 var query = SqlManager.GetSql(TSql.EFETUAR_EMPRESTIMO_LIVRO);
 
-                var command = new SqlCommand(query, _connection);
+                var command = new SqlCommand(query, _connection, Transaction);
 
                 command.Parameters.Add("@clienteId", SqlDbType.VarChar).Value = emprestimoLivro.ClienteId;
                 command.Parameters.Add("@usuarioId", SqlDbType.Int).Value = emprestimoLivro.UsuarioId;
@@ -694,6 +694,53 @@ namespace BibliotecaWeb.Models.Contexts
             }
         }
     }
+
+        public List<ConsultaEmprestimoDto> ConsultarEmprestimos()
+        {
+            var emprestimos = new List<ConsultaEmprestimoDto>();
+            try
+            {
+
+                var query = SqlManager.GetSql(TSql.CONSULTAR_EMPRESTIMOS_LIVROS);
+
+                var command = new SqlCommand(query, _connection);
+                var dataset = new DataSet();
+                var adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataset);
+
+                var rows = dataset.Tables[0].Rows;
+
+                foreach (DataRow item in rows)
+                {
+                    var colunas = item.ItemArray;
+
+                    var emprestimo = new ConsultaEmprestimoDto
+                    {
+                        Livro = colunas[0].ToString(),
+                        Autor = colunas[1].ToString(),
+                        Editora = colunas[2].ToString(),
+                        Cliente = colunas[3].ToString(),
+                        CPF = colunas[4].ToString(),
+                        DataEmprestimo = colunas[5].ToString(),
+                        DataDevolucao = colunas[6].ToString(),
+                        DataDevolucaoEfetiva = colunas[7].ToString(),
+                        StatusLivro = colunas[8].ToString(),
+                        LoginBibliotecario = colunas[9].ToString(),
+                    };
+                        emprestimos.Add(emprestimo);
+                }
+
+                adapter = null;
+                dataset = null;
+
+                return emprestimos;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 
 }
