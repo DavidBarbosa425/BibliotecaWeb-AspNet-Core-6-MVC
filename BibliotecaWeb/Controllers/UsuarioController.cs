@@ -35,7 +35,7 @@ namespace BibliotecaWeb.Controllers
 
                     TempData["loginError"] = false;
 
-                    return Redirect("/Emprestimo/Index");
+                    return Redirect("/Emprestimo/Consulta");
                 }
                 else
                 {

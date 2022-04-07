@@ -77,21 +77,32 @@ namespace BibliotecaWeb.Models.Repositories
                     sql = "update emprestimoLivro set dataDevolucao = @dataDevolucao where clienteId = @clienteId and livroId = @livroId";
                     break;
                 case TSql.CONSULTAR_EMPRESTIMOS_LIVROS:
-                    sql = @"select l.nome 'Livro', l.autor, l.editora,
-                            c.nome 'Cliente', c.cpf,
-                            el.dataEmprestimo,el.dataDevolucao,el.dataDevolucaoEfetiva,
-                            sl.status 'Status do Livro',
-                            u.login ' Login Bibliotecario'
-                            from emprestimoLivro EL
-                            inner
-                            join livro L on EL.livroId = L.id
-                            inner
-                            join cliente C on c.id = el.clienteId
-                            inner
-                            join statusLivro SL on SL.id = L.statusLivroId
-                            inner
-                            join usuario U on u.id = EL.usuarioId";
-                    break ;
+                    sql = @"select 
+                                l.nome 'Livro', l.autor, l.editora,
+                                c.nome 'Cliente', c.cpf,
+                                el.dataEmprestimo,el.dataDevolucao,el.dataDevolucaoEfetiva,
+                                sl.status 'Status do Livro',
+                                u.login 'Login Bibliotecario'
+                            from livro L 
+                                inner join emprestimoLivro EL on EL.livroId = L.id  
+                                inner join cliente C on c.id = el.clienteId
+                                inner join statusLivro SL on SL.id = L.statusLivroId
+                                inner join usuario U on u.id = EL.usuarioId";
+                    break;
+                case TSql.PESQUISAR_EMPRESTIMO_LIVROS:
+                    sql = @"select 
+                                l.nome 'Livro', l.autor, l.editora,
+                                c.nome 'Cliente', c.cpf,
+                                el.dataEmprestimo,el.dataDevolucao,el.dataDevolucaoEfetiva,
+                                sl.status 'Status do Livro',
+                                u.login 'Login Bibliotecario'
+                            from livro L 
+                                inner join emprestimoLivro EL on EL.livroId = L.id  
+                                inner join cliente C on c.id = el.clienteId
+                                inner join statusLivro SL on SL.id = L.statusLivroId
+                                inner join usuario U on u.id = EL.usuarioId
+                            where l.nome = @nomeLivro and c.nome = @nomeCliente and dateadd(dd, 0, datediff(dd,0,el.dataEmprestimo))  = @dataEmprestimo";
+                    break;
 
             }
             return sql;

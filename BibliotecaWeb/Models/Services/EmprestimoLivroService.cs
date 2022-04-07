@@ -46,5 +46,10 @@ namespace BibliotecaWeb.Models.Services
                 throw ex;
             }
         }
+
+        public ConsultaEmprestimoDto PesquisarEmprestimo(string nomeLivro, string nomeCliente, DateTime dataEmprestimo)
+        {
+            return _emprestimoLivroRepository.PesquisarEmprestimo(nomeLivro, nomeCliente, dataEmprestimo);
+        }
     }
 }

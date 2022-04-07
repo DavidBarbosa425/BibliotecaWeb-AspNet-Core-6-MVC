@@ -28,5 +28,10 @@ namespace BibliotecaWeb.Models.Repositories
         {
             _contextData.EfetuarEmprestimoLivro(emprestimoLivro);   
         }
+
+        public ConsultaEmprestimoDto PesquisarEmprestimo(string nomeLivro, string nomeCliente, DateTime dataEmprestimo)
+        {
+            return _contextData.PesquisarEmprestimo(nomeLivro, nomeCliente, dataEmprestimo);
+        }
     }
 }

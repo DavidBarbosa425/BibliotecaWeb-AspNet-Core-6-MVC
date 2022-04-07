@@ -44,6 +44,7 @@ namespace BibliotecaWeb.Models.Contracts.Contexts
         void EfetuarEmprestimoLivro(EmprestimoLivro emprestimoLivro);
         void EfetuarDevolucaoLivro(EmprestimoLivro emprestimoLivro);
         List<ConsultaEmprestimoDto> ConsultarEmprestimos();
+        ConsultaEmprestimoDto PesquisarEmprestimo(string nomeLivro, string nomeCliente,DateTime dataEmprestimo);
     }
 }
 
