@@ -38,12 +38,25 @@ namespace BibliotecaWeb.Controllers
         public IActionResult PesquisarEmprestimo(string nomeLivro, string nomeCliente, string dataEmprestimo)
         {
 
-            try 
+            try
             {
 
                 DateTime dataEmprestimoFormatada = DateTime.Parse(dataEmprestimo);
                 ConsultaEmprestimoDto result = _emprestimoService.PesquisarEmprestimo(nomeLivro, nomeCliente, dataEmprestimoFormatada);
                 return View(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public IActionResult EfetuarDevolucao(int emprestimoId, string livroId)
+        {
+            try
+            {
+                _emprestimoService.EfetuarDevolucao(emprestimoId, livroId);
+                return RedirectToAction("Consulta");
             }
             catch (Exception ex)
             {

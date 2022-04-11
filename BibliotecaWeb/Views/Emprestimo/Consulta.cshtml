@@ -5,7 +5,9 @@
 }
 
 <h3>Consulta de Empréstimos de Livros</h3>
-
+<p>
+    <a asp-action="Index">Novo Empréstimo</a>
+</p>
 
 <table class="table table-striped table-bordered">
     <thead>
@@ -58,5 +60,6 @@
         </tr>
 }
     </tbody>
-    @Html.ActionLink("Voltar", "Index") 
+    
 </table>
+@Html.ActionLink("Voltar", "Index") 

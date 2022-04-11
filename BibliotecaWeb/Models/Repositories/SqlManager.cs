@@ -74,7 +74,7 @@ namespace BibliotecaWeb.Models.Repositories
                     break;
 
                 case TSql.EFETUAR_DEVOLUCAO_LIVRO:
-                    sql = "update emprestimoLivro set dataDevolucao = @dataDevolucao where clienteId = @clienteId and livroId = @livroId";
+                    sql = "update emprestimoLivro set dataDevolucaoEfetiva = @dataDevolucaoEfetiva where id = @id";
                     break;
                 case TSql.CONSULTAR_EMPRESTIMOS_LIVROS:
                     sql = @"select 
@@ -82,12 +82,15 @@ namespace BibliotecaWeb.Models.Repositories
                                 c.nome 'Cliente', c.cpf,
                                 el.dataEmprestimo,el.dataDevolucao,el.dataDevolucaoEfetiva,
                                 sl.status 'Status do Livro',
-                                u.login 'Login Bibliotecario'
+                                u.login 'Login Bibliotecario',
+                                el.id, convert(varchar(36),l.id)  'livroId'
                             from livro L 
                                 inner join emprestimoLivro EL on EL.livroId = L.id  
                                 inner join cliente C on c.id = el.clienteId
                                 inner join statusLivro SL on SL.id = L.statusLivroId
-                                inner join usuario U on u.id = EL.usuarioId";
+                                inner join usuario U on u.id = EL.usuarioId
+                            order by
+                                el.dataEmprestimo desc";
                     break;
                 case TSql.PESQUISAR_EMPRESTIMO_LIVROS:
                     sql = @"select 
@@ -95,7 +98,8 @@ namespace BibliotecaWeb.Models.Repositories
                                 c.nome 'Cliente', c.cpf,
                                 el.dataEmprestimo,el.dataDevolucao,el.dataDevolucaoEfetiva,
                                 sl.status 'Status do Livro',
-                                u.login 'Login Bibliotecario'
+                                u.login 'Login Bibliotecario',
+                                el.id, convert(varchar(36),l.id)  'livroId'
                             from livro L 
                                 inner join emprestimoLivro EL on EL.livroId = L.id  
                                 inner join cliente C on c.id = el.clienteId

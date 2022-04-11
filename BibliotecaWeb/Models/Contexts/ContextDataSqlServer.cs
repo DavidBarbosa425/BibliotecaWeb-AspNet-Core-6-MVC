@@ -650,7 +650,7 @@ namespace BibliotecaWeb.Models.Contexts
         }
     
 
-        public void EfetuarDevolucaoLivro(EmprestimoLivro emprestimoLivro)
+        public void EfetuarDevolucaoLivro(int emprestimoId, string livroId)
         {
         SqlTransaction Transaction = null;
 
@@ -661,19 +661,18 @@ namespace BibliotecaWeb.Models.Contexts
 
             var query = SqlManager.GetSql(TSql.EFETUAR_DEVOLUCAO_LIVRO);
 
-            var command = new SqlCommand(query, _connection);
+            var command = new SqlCommand(query, _connection,Transaction);
 
-            command.Parameters.Add("@clienteId", SqlDbType.VarChar).Value = emprestimoLivro.ClienteId;
-            command.Parameters.Add("@livroId", SqlDbType.VarChar).Value = emprestimoLivro.LivroId;
-            command.Parameters.Add("@dataDevolucaoEfetiva", SqlDbType.DateTime).Value = emprestimoLivro.DataDevolucaoEfetiva;
+            command.Parameters.Add("@Id", SqlDbType.VarChar).Value = emprestimoId;
+            command.Parameters.Add("@dataDevolucaoEfetiva", SqlDbType.DateTime).Value = DateTime.Now;
 
 
             command.ExecuteNonQuery();
 
             var query2 = SqlManager.GetSql(TSql.ATUALIZAR_STATUS_LIVRO);
-            var command2 = new SqlCommand(query, _connection, Transaction);
+            var command2 = new SqlCommand(query2, _connection, Transaction);
 
-            command2.Parameters.Add("@id", SqlDbType.VarChar).Value = emprestimoLivro.LivroId;
+            command2.Parameters.Add("@id", SqlDbType.VarChar).Value = livroId;
             command2.Parameters.Add("@statusLivroId", SqlDbType.Int).Value = StatusLivro.DISPONIVEL.GetHashCode();
 
             command2.ExecuteNonQuery();
@@ -726,6 +725,8 @@ namespace BibliotecaWeb.Models.Contexts
                         DataDevolucaoEfetiva = colunas[7].ToString(),
                         StatusLivro = colunas[8].ToString(),
                         LoginBibliotecario = colunas[9].ToString(),
+                        Id = int.Parse(colunas[10].ToString()),
+                        LivroId = colunas[11].ToString(),
                     };
                         emprestimos.Add(emprestimo);
                 }
@@ -777,6 +778,8 @@ namespace BibliotecaWeb.Models.Contexts
                         DataDevolucaoEfetiva = colunas[7].ToString(),
                         StatusLivro = colunas[8].ToString(),
                         LoginBibliotecario = colunas[9].ToString(),
+                        Id = int.Parse(colunas[10].ToString()),
+                        LivroId = colunas[11].ToString(),
                     };
                     
                 }

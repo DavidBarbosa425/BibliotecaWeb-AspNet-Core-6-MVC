@@ -20,12 +20,12 @@ namespace BibliotecaWeb.Models.Services
 
         }
 
-        public void EfetuarDevolucao(EmprestimoLivroDto emprestimoLivro)
+        public void EfetuarDevolucao(int emprestimoId, string livroId)
         {
             try
             {
-                var entidade = emprestimoLivro.ConverterParaEntidade();
-                _emprestimoLivroRepository.EfetuarDevolucao(entidade);
+                
+                _emprestimoLivroRepository.EfetuarDevolucao(emprestimoId, livroId);
             }
             catch (Exception ex)
             {

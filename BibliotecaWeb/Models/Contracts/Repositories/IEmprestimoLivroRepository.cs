@@ -6,7 +6,7 @@ namespace BibliotecaWeb.Models.Contracts.Repositories
     public interface IEmprestimoLivroRepository
     {
         void EfetuarEmprestimo(EmprestimoLivro emprestimoLivro);
-        void EfetuarDevolucao(EmprestimoLivro emprestimoLivro);
+        void EfetuarDevolucao(int emprestimoId, string livroId);
         List<ConsultaEmprestimoDto> ConsultarEmprestimos();
         ConsultaEmprestimoDto PesquisarEmprestimo(string nomeLivro, string nomeCliente, DateTime dataEmprestimo);
 
