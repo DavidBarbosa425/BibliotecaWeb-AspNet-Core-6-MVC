@@ -33,7 +33,7 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Cliente" asp-action="List">Clientes</a>
                         </li>
                        @{
-                            var login = Context.Session.GetString("_Login");
+                            string login = Context.Session.GetString("_Login");
                             if(login != null)
                             {
                                <li class="nav-item">

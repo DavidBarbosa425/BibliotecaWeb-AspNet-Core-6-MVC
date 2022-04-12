@@ -1,7 +1,9 @@
 ﻿@model BibliotecaWeb.Models.Dtos.LivroDto
+@using Microsoft.AspNetCore.Http;
 
 @{
     ViewData["Title"] = "Details";
+     string login = Context.Session.GetString("_Login");
 }
 
 <h1>Detalhes</h1>
@@ -34,8 +36,15 @@
             @Html.DisplayFor(model => model.Id)
         </dd>
     </dl>
-</div>
+</div>   
 <div>
-    @Html.ActionLink("Atualizar", "Edit", new { id = Model.Id }) |
-    <a asp-action="List">Voltar para Lista</a>
+  @if(login != null)
+  {
+      
+        <p>
+            @Html.ActionLink("Atualizar", "Edit", new { id = Model.Id }) |
+            <a asp-action="List">Voltar para Lista</a>
+        </p>
+  }
 </div>
+
