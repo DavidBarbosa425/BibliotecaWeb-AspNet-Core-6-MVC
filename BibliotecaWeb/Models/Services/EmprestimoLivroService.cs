@@ -13,6 +13,11 @@ namespace BibliotecaWeb.Models.Services
             _emprestimoLivroRepository = emprestimoLivroRepository;
         }
 
+        public void AtualizarStatusEmprestimoLivros()
+        {
+            _emprestimoLivroRepository.AtualizarStatusEmprestimoLivros();
+        }
+
         public List<ConsultaEmprestimoDto> ConsultaEmprestimos()
         {
 

@@ -8,6 +8,7 @@ namespace BibliotecaWeb.Models.Contracts.Services
         void EfetuarDevolucao(int emprestimoId, string livroId);
         List<ConsultaEmprestimoDto> ConsultaEmprestimos();
         ConsultaEmprestimoDto PesquisarEmprestimo(string nomeLivro, string nomeCliente, DateTime dataEmprestimo);
+        void AtualizarStatusEmprestimoLivros();
 
     }
 }

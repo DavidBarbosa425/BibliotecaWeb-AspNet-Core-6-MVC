@@ -107,6 +107,9 @@ namespace BibliotecaWeb.Models.Repositories
                                 inner join usuario U on u.id = EL.usuarioId
                             where l.nome = @nomeLivro and c.nome = @nomeCliente and dateadd(dd, 0, datediff(dd,0,el.dataEmprestimo))  = @dataEmprestimo";
                     break;
+                case TSql.ATUALIZAR_STATUS_EMPRESTIMOS_LIVROS:
+                    sql = "SP_ATUALIZA_STATUS_EMPRESTIMO_LIVROS";
+                    break;
 
             }
             return sql;

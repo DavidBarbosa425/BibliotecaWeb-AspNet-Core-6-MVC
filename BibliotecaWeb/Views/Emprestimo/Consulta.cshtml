@@ -52,7 +52,15 @@
                 @Html.DisplayFor(modelItem => item.DataDevolucao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StatusLivro)
+                    @if(item.StatusLivro == "Atraso_Devolucao")
+                    {
+                        <p style ="color:red"><strong>@Html.DisplayFor(modelItem => item.StatusLivro)</strong> </p>
+    
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.StatusLivro)
+                    }                    
             </td>
             <td>
                 @Html.ActionLink("Detalhes", "PesquisarEmprestimo", new { nomeLivro = item.Livro, nomeCliente = item.Cliente, dataEmprestimo = item.DataEmprestimo})

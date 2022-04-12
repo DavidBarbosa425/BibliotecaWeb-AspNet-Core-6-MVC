@@ -49,6 +49,11 @@ namespace BibliotecaWeb.Models.Contexts
             }
         }
 
+        public void AtualizarStatusEmprestimoLivros()
+        {
+            throw new NotImplementedException();
+        }
+
         public void AtualizarUsuario(Usuario usuario)
         {
             throw new NotImplementedException();

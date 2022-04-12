@@ -25,6 +25,7 @@ namespace BibliotecaWeb.Controllers
         {
             try
             {
+                _emprestimoService.AtualizarStatusEmprestimoLivros();
                 var emprestimos = _emprestimoService.ConsultaEmprestimos();
                 return View(emprestimos);
             }

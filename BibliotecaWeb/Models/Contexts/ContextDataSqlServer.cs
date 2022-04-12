@@ -135,8 +135,8 @@ namespace BibliotecaWeb.Models.Contexts
                     var editora = colunas[3].ToString();
                     var statusLivroId = colunas[4].ToString();
 
-                    var livro = new Livro { Id = id, Nome = nome, Autor = autor, Editora = editora, StatusLivroId = Int32.Parse(statusLivroId)};
-                    livro.StatusLivro = GerenciadorDeStatus.PesquisarStatusDoLivroPorId(livro.StatusLivroId);   
+                    var livro = new Livro { Id = id, Nome = nome, Autor = autor, Editora = editora, StatusLivroId = Int32.Parse(statusLivroId) };
+                    livro.StatusLivro = GerenciadorDeStatus.PesquisarStatusDoLivroPorId(livro.StatusLivroId);
                     livros.Add(livro);
                 }
 
@@ -622,7 +622,7 @@ namespace BibliotecaWeb.Models.Contexts
                 command.Parameters.Add("@dataDevolucao", SqlDbType.DateTime).Value = emprestimoLivro.DataDevolucao;
 
 
-                    command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
 
                 var query2 = SqlManager.GetSql(TSql.ATUALIZAR_STATUS_LIVRO);
                 var command2 = new SqlCommand(query2, _connection, Transaction);
@@ -648,51 +648,51 @@ namespace BibliotecaWeb.Models.Contexts
                 }
             }
         }
-    
+
 
         public void EfetuarDevolucaoLivro(int emprestimoId, string livroId)
         {
-        SqlTransaction Transaction = null;
+            SqlTransaction Transaction = null;
 
-        try
-        {
-            _connection.Open();
-            Transaction = _connection.BeginTransaction();
-
-            var query = SqlManager.GetSql(TSql.EFETUAR_DEVOLUCAO_LIVRO);
-
-            var command = new SqlCommand(query, _connection,Transaction);
-
-            command.Parameters.Add("@Id", SqlDbType.VarChar).Value = emprestimoId;
-            command.Parameters.Add("@dataDevolucaoEfetiva", SqlDbType.DateTime).Value = DateTime.Now;
-
-
-            command.ExecuteNonQuery();
-
-            var query2 = SqlManager.GetSql(TSql.ATUALIZAR_STATUS_LIVRO);
-            var command2 = new SqlCommand(query2, _connection, Transaction);
-
-            command2.Parameters.Add("@id", SqlDbType.VarChar).Value = livroId;
-            command2.Parameters.Add("@statusLivroId", SqlDbType.Int).Value = StatusLivro.DISPONIVEL.GetHashCode();
-
-            command2.ExecuteNonQuery();
-            Transaction.Commit();
-        }
-        catch (Exception ex)
-        {
-            if (Transaction != null)
+            try
             {
-                Transaction.Rollback();
+                _connection.Open();
+                Transaction = _connection.BeginTransaction();
+
+                var query = SqlManager.GetSql(TSql.EFETUAR_DEVOLUCAO_LIVRO);
+
+                var command = new SqlCommand(query, _connection, Transaction);
+
+                command.Parameters.Add("@Id", SqlDbType.VarChar).Value = emprestimoId;
+                command.Parameters.Add("@dataDevolucaoEfetiva", SqlDbType.DateTime).Value = DateTime.Now;
+
+
+                command.ExecuteNonQuery();
+
+                var query2 = SqlManager.GetSql(TSql.ATUALIZAR_STATUS_LIVRO);
+                var command2 = new SqlCommand(query2, _connection, Transaction);
+
+                command2.Parameters.Add("@id", SqlDbType.VarChar).Value = livroId;
+                command2.Parameters.Add("@statusLivroId", SqlDbType.Int).Value = StatusLivro.DISPONIVEL.GetHashCode();
+
+                command2.ExecuteNonQuery();
+                Transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (Transaction != null)
+                {
+                    Transaction.Rollback();
+                }
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
             }
         }
-        finally
-        {
-            if (_connection.State == ConnectionState.Open)
-            {
-                _connection.Close();
-            }
-        }
-    }
 
         public List<ConsultaEmprestimoDto> ConsultarEmprestimos()
         {
@@ -728,7 +728,7 @@ namespace BibliotecaWeb.Models.Contexts
                         Id = int.Parse(colunas[10].ToString()),
                         LivroId = colunas[11].ToString(),
                     };
-                        emprestimos.Add(emprestimo);
+                    emprestimos.Add(emprestimo);
                 }
 
                 adapter = null;
@@ -781,7 +781,7 @@ namespace BibliotecaWeb.Models.Contexts
                         Id = int.Parse(colunas[10].ToString()),
                         LivroId = colunas[11].ToString(),
                     };
-                    
+
                 }
 
                 adapter = null;
@@ -793,6 +793,33 @@ namespace BibliotecaWeb.Models.Contexts
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public void AtualizarStatusEmprestimoLivros()
+        {
+            try
+            {
+
+                var proc = SqlManager.GetSql(TSql.ATUALIZAR_STATUS_EMPRESTIMOS_LIVROS);
+
+                _connection.Open();
+                var command = new SqlCommand(proc, _connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.ExecuteNonQuery();
+                command = null;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
             }
         }
     }

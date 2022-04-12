@@ -14,6 +14,11 @@ namespace BibliotecaWeb.Models.Repositories
             _contextData = contextData; 
         }
 
+        public void AtualizarStatusEmprestimoLivros()
+        {
+            _contextData.AtualizarStatusEmprestimoLivros();
+        }
+
         public List<ConsultaEmprestimoDto> ConsultarEmprestimos()
         {
             return _contextData.ConsultarEmprestimos();
